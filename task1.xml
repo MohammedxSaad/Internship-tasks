@@ -1,25 +1,22 @@
 <tutorials>
 <tutorial>
-<id>123</id>
-<title>First</title>
-
-
-</tutorial>
-
-<tutorial>
-<id>456</id>
-<title>Second</title>
-
-
+<id>111</id>
+<title>First Tutorial</title>
+<content> HTML </content>
 
 </tutorial>
 
 <tutorial>
-<id>789</id>
-<title>Third</title>
+<id>222</id>
+<title>Second Tutorial</title>
+<content> CSS </content>
 
+</tutorial>
 
-
+<tutorial>
+<id>333</id>
+<title>Third Tutorial</title>
+<content> XML </content>
 </tutorial>
 
 </tutorials>
