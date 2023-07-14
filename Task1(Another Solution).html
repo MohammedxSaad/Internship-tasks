@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Display Xml Data </h2>
+    <br>
+    <button type="button" onclick="showData()"> Show Data</button>
+    <br>
+    <br>
+    <div id="XML">
+        <h2>Tutorials:</h2>
+    </div>
+
+    <script>
+
+
+
+        function showData() {
+            fetch("task1.xml").then(response => { return response.text(); }).then(xmlString => {
+                const xmlDoc = new DOMParser().parseFromString(xmlString, "text/xml");
+                var xmlStringFormatted = new XMLSerializer().serializeToString(xmlDoc);
+                const title = xmlDoc.querySelectorAll("title");
+                const id = xmlDoc.querySelectorAll("id");
+                const content = xmlDoc.querySelectorAll("content");
+                console.log(xmlDoc)  //-----> this Line to Compare Between XML Data and WebPage Data
+                                     //,Just Right Click and Press Inspect
+
+
+
+
+                // console.log(title);
+                var container = document.getElementById('XML');
+
+                for (var i = 0; i < title.length && i < id.length; i++) {
+
+                    var titleString = new XMLSerializer().serializeToString(title[i]);
+                    var idString = new XMLSerializer().serializeToString(id[i]);
+                    var contentString = new XMLSerializer().serializeToString(content[i]);
+
+ 
+                    var valueDiv = document.createElement('div');
+                     
+                    valueDiv.textContent =idString+'\n;'+ titleString +'\n;' + contentString ;     
+                    container.appendChild(valueDiv);
+     
+                        
+                    }
+                   
+                
+
+            });
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
