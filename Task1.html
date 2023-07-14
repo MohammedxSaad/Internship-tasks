@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Display Xml Data </h2>
+    <br>
+    <button type="button" onclick="showData()"> Show Data</button>
+    <br>
+    <br>
+    <div id="XML"></div>
+
+    <script>
+
+
+
+        function showData() {
+            fetch("task1.xml").then(response => { return response.text(); }).then(xmlString => {
+                const xmlDoc = new DOMParser().parseFromString(xmlString, "text/xml");
+                var xmlStringFormatted = new XMLSerializer().serializeToString(xmlDoc);
+                var div = document.createElement('div');
+
+                div.textContent = xmlStringFormatted;
+
+                var container = document.getElementById('XML');
+
+                container.appendChild(div);
+                // const tutorials = xmlDoc.querySelectorAll("tutorial");
+                // console.log(xmlDoc);
+                // var id =[];
+                // var title=[];
+
+                // for(const tutorial of tutorials){
+                //     const id = tutorial.querySelector("id").textContent;
+                //     result.push 
+                //     const title = tutorial.querySelector("title").textContent;
+
+                //     document.getElementById("demo").innerHTML += id ;
+                //     console.log(id);
+            });
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
